@@ -9,7 +9,14 @@ jobs:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
     docker:
-      - image: cimg/base:stable
+      - image 
+  build:xcode 
+    docker:
+      - image:
+    steps:
+      - checkout
+      - run: ./gradlew androidDependencies
+      - run: ./gradlew lint t
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -20,7 +27,7 @@ jobs:
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
-workflows:
+workflo:
   say-hello-workflow:
     jobs:
       - say-hello
